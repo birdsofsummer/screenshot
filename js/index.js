@@ -31,11 +31,8 @@ const init_dir=(n=10)=>{
 }
 
 
-const start_screenshot=async ([y,m,d]=[])=>{
+const start_screenshot=async (name1="xxx.png")=>{
   const config={width: 1920, height: 1080, quality: 120}
-  //name=moment().unix()+".png"
-  const name=moment().format("YYYYMMDD_hhmmss_x")+".png"
-  const name1=path.resolve(y,m,d,name)
   const r=await screenshot1(name1,config )
   console.log(r)
 }
@@ -50,7 +47,10 @@ const start=(n=3,interval=1000)=>{
     .pipe(take(n))
     .subscribe(x=>{
         console.log("start sss..%d",x)
-        start_screenshot([y,m,d])
+        //name=moment().unix()+".png"
+        const name=moment().format("YYYYMMDD_hhmmss_x")+".png"
+        const name1=path.resolve(y,m,d,name)
+        start_screenshot(name1)
     })
 }
 
