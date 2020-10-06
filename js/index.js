@@ -41,12 +41,12 @@ const start_screenshot=async ([y,m,d]=[])=>{
 }
 
 
-const start=(n=3)=>{
+const start=(n=3,interval=1000)=>{
   let [y,m,]=ymd()
   let d=today()
   md([y,m,d])
   rxjs
-    .interval(1000)
+    .interval(interval)
     .pipe(take(n))
     .subscribe(x=>{
         console.log("start sss..%d",x)
