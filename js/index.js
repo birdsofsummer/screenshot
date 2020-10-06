@@ -31,8 +31,14 @@ const init_dir=(n=10)=>{
 }
 
 
-const start_screenshot=async (name1="xxx.png")=>{
-  const config={width: 1920, height: 1080, quality: 120}
+const start_screenshot=async (
+    name1="xxx.png",
+    config={
+        width: 1920,
+        height: 1080,
+        quality: 120
+    },
+)=>{
   const r=await screenshot1(name1,config )
   console.log(r)
 }
